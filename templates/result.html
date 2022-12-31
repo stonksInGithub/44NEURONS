@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{disease}} {{type}}</title>
+<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='44N.png')}}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style> 
+div {
+  margin:auto;
+  width:95%;
+  color:white;
+  font-weight: bold;
+  position: relative;
+  animation: mymove 5s infinite;
+}
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 300px;}
+}
+.fade-in-effect {
+  font-family: Arial;
+  font-size: 60px;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.content {
+	margin:auto;
+	width:95%;
+	font-family:Arial;
+	font-size:40px;
+	color:white;
+	text-align:center;
+	
+}
+.center {
+  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4-%%;
+}
+
+
+</style>
+<body style="background-color:Gray;">
+
+	<div class="fade-in-effect">
+		<img src="{{url_for('static', filename='44N.png')}}" alt="Smiley face" style="float:center;width:250px;height:110px;"></p>
+		<h1 style="width:100%;text-align:center;">{{disease}} {{type}}-Result</h1><hr style="height:5px;background-color:black;">
+		<img src="static/files/{{filename}}" alt="Uploaded image" width="500" height="600" class="center">
+		<p class="content">The machine learning model has classified the image to be the case of <br><mark><strong>{{disease}}{{pneu_result}}</strong></mark> </p>
+		<p style="text-align:center;"><a href="index.html" style="text-align:center; font-size:40px;">Go to main screen</a></p>
+		<p style="text-align:center;font-size:40px;">For more details behind the source code of the project, visit the <a href="https://github.com/stonksInGithub/DDAI-html" title=""https://github.com/stonksInGithub/DDAI-html"">Github repository </a> of this project</p>
+		
+	</div>
+</body>
+</html>
