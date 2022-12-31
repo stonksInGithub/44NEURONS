@@ -11,7 +11,7 @@ import os
 
 
 app = Flask(__name__, template_folder="templates")
-app.config["SECRET_KEY"] = "dnkvvians@#"
+app.config["SECRET_KEY"] = "12345"
 app.config["UPLOAD_FOLDER"] = "static\\files"
 app.config["UPLOAD_EXTENSIONS"] = [".jpg", ".jpeg"]
 
