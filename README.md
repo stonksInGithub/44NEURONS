@@ -11,6 +11,18 @@ Python modules required:
 python3 -m pip --upgrade install flask, tensorflow, keras_preprocessing matplotlib
 ```
 
+## Running Locally
+After installing the specified modules and the dataset and the `.h5` files. Extract the dataset and copy the ```test, train, val``` folders to the project folder.
+Change the folder path in Flask_AI_ML.py file and `UPLOAD_FOLDER` path too.
+Run the flask app py:
+```sh
+# For Linux
+python3 Flask_AI_ML.py
+
+# For windows
+py3 Flask_AI_ML.py
+```
+
 The source code is licensed under MIT and further use of this code, credit should be given.
 
 ## Datasets used
