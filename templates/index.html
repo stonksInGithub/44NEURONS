@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>44NEURONS</title>
+<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='44N2.png')}}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style> 
+* {
+  box-sizing: border-box;
+}
+div {
+  width:100%;
+  color:white;
+  font-weight: bold;
+  position: relative;
+  
+  }
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 300px;}
+}
+.fade-in-effect {
+  font-family: Arial;
+  font-size: 60px;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.content {
+	font-family:Arial;
+	font-size:30px;
+	color:white;
+	text-align:center;
+	
+}
+.center {
+  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4-%%;
+}
+.left{
+	float:left
+}
+.right{
+	float:right
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 15px;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+</style>
+<body style="background-color:Gray;">
+  <div class="fade-in-effect">
+		<img src="{{url_for('static', filename='44N.png')}}" alt="44NEURONS" style="float:center;width:250px;height:110px;"></p>
+		<h1 style="width:100%; text-align:center;">44NEURONS</h1><hr style="height:5px;background-color:black;">
+		<p class="content">This website aims to demonstrate the power and application of Machine Learning Models in disease diagnosis and <strong>IS NOT</strong> to be used to substitute for a medical consultation with a doctor
+		</p>
+		
+	<div class="row">
+		<div class="column">
+			<h2 style="text-align:center">
+				Pneumonia detector 
+			</h2>
+			<a href="DDAI.html" style="text-align:center;">
+				<img src="{{url_for('static', filename='pneumonia.jpg')}}" alt="pneumonia.jpg" width="500" height="600" class="center">
+			</a>
+			<p style="font-family:Arial;text-align:center;font-size:30px;color:white;">
+				Click on the image above to diagnosis for pneumonia by uploading the x-ray image of the chest.
+			</p>
+		</div>
+		<div class="column">
+			<h2 style="text-align:center">Skin Cancer detector</h2>
+			<a href="DDAISC.html" style="text-align:center;">
+				<img src="{{url_for('static', filename='skincancer.jpg')}}" alt="skincancer.jpg" width="500" height="600" class="center">
+			</a>
+			<p style="font-family:Arial;text-align:center;font-size:30px;color:white;">
+				Click on the image above to diagnosis for skin cancer by uploading the photo of the skin.
+			</p>
+		</div>
+	</div>
+  </div>
+		<br>
+	
+		
+		
+	
+	
+		
+	
+</body>
+</html>
