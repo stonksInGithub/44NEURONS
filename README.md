@@ -1,7 +1,9 @@
 # DDAI-html
 Disease detection/classification using neural network and tensorflow in python
 <br>
-This is the source code for the project(named "**44NEURONS**") in account of the Chinmaya Vidhyala School AI competition.
+This is the source code for the project(named "**44NEURONS**").
+<br>
+Build with 💖 using python!
 
 ## Back-end & Front-end
 
@@ -12,7 +14,7 @@ python3 -m pip --upgrade install flask, tensorflow, keras_preprocessing matplotl
 ```
 
 ## Running Locally
-**Note**: Since github uploads are restricted to 100mb the model file for pneumonia detector can be downloaded through this [drive link](https://drive.google.com/file/d/1RMY8TB4TUt872VeT7or2Y9YcSX714jQc/view?usp=share_link)
+**Note**: Since github uploads are restricted to 100mb the model file for pneumonia detector can be downloaded through this [drive link](https://drive.google.com/file/d/1RMY8TB4TUt872VeT7or2Y9YcSX714jQc/view?usp=share_link).<br>
 After installing the specified modules and the dataset and the `.h5` files. Extract the dataset and copy the ```test, train, val``` folders to the project folder.
 Change the folder path in Flask_AI_ML.py file and `UPLOAD_FOLDER` path too.
 Run the flask app py:
