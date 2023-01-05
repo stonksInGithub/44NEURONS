@@ -25,10 +25,16 @@ class UploadFileForm(FlaskForm):
     file=FileField("File", validators=[InputRequired()])
     submit=SubmitField("Upload File")
 
-def check_size(path):
+def check_pneu_size(path):
     with Image.open(path) as image:
         width,height=image.size
         if width < 320 and height < 320:
+            return True
+        
+def check_sc_size(path):
+    with Image.open(path) as image:
+        width,height=image.size
+        if width < 32 and height < 32:
             return True
 
 def pneu_pred(fp: str):
@@ -95,7 +101,7 @@ def pneu_page_to():
             app.c=file.filename
             minpath=".\\static\\files\\" + app.c
             app.path=os.path.abspath(minpath)
-            if check_size(app.path):
+            if check_pneu_size(app.path):
                 error="The dimensions of the image must be greater than (320,320)"
             else:
                 return redirect(url_for('result'))
@@ -117,8 +123,8 @@ def skin_cancer():
             app.c=file.filename
             minpath=".\\static\\files\\" + app.c
             app.path=os.path.abspath(minpath)
-            if check_size(app.path):
-                error="The dimensions of the image must be greater than (320,320)"
+            if check_sc_size(app.path):
+                error="The dimensions of the image must be greater than (32,32)"
             else:
                 return redirect(url_for('result'))
             
