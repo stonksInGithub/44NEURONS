@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pneumonia Detector</title>
+<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='44N2.png')}}">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style> 
+div {
+  margin:auto;
+  width:95%;
+  color:white;
+  font-weight: bold;
+  position: relative;
+  animation: mymove 5s infinite;
+}
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 300px;}
+}
+.fade-in-effect {
+  font-family: Arial;
+  font-size: 60px;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.content {
+	margin:auto;
+	width:95%;
+	font-family:Arial;
+	font-size:20px;
+	color:white;
+	text-align:center;
+	
+	
+}
+.center {
+  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4-%%;
+}
+
+
+</style>
+<body style="background-color:Gray;">
+
+	<div class="fade-in-effect">
+		<img src="{{url_for('static', filename='44N.png')}}" alt="44Neurons" style="float:center;width:250px;height:110px;"></p>
+		<h1 style="width:100%; text-align:center;">Disease detection using Machine Learning</h1>
+		<img src="{{url_for('static', filename='pneumonia.jpg')}}" alt="pneumonia.jpg" width="500" height="600" class="center">
+	</div>
+	
+	<div class="fade-in-effect">
+		
+		<h2 class="content" style="font-size:100px">Pneumonia detector</h2>
+		<p class="content">
+			<mark><strong>Abstract:</strong></mark> Detection of pneumonia through x ray images using Conventional Neural Network, trained with over 1300 images with an average accuracy of 96%.
+			<b><hr style="height:5px;background-color:black;">
+		</p>
+		<p class="content"><mark><strong>Introduction:</strong></mark> 
+			Pneumonia is an infection that inflames air sacs in one or both lungs, which may fill with fluid. Through the x ray images of the chest and with the help of convolutional neural network and modern machine learning technology, anywhere anytime one can diagnose themselves.
+			The CNN model is trained with over 1300 perfectly classified images and has an average accuracy of 96%.
+			<br>Aim of this project is to help people diagnose themselves anytime anywhere. Though it has a good accuracy it is to be noted that this is not a completely accurate information and one must consult an appropriate doctor for confirmation.
+		</p>
+		<p class="content"><mark><strong>Design:</strong></mark>
+			This project is programmed in python with the back-end being tensorflow.
+			We used flask to integrate the model and the UI.
+
+			<br><br>
+			<mark><strong>Data:</strong></mark> The testing data used is from <a href="https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia/code" target="_blank">Kaggle</a>.
+			The dataset is organized into 3 folders (train, test, val) and contains subfolders for each image category (Pneumonia/Normal). There are 5,863 X-Ray images (JPEG) of 2 categories (Pneumonia/Normal). The data provided is very precise and accurate
+			<br><br>
+			<mark><strong>Model:</strong></mark> This project uses keras' VGG16 model which is 16 layers deep. The model pre-processes the given chest x-ray dataset and divides it into two splits namely testing and training. Then the model is initialised with the following splits and the model is added with activation functions. Then the model is flattened. We now have the fully connected neural network following which the model is compiled with adam optimizer over 5 epoches.
+			<br><br>
+			Please upload the X-ray image of the chest here to test for pneumonia:
+			<form method="post" class="content" enctype="multipart/form-data" required>
+				{{form.hidden_tag()}}
+				{{form.file()}}
+				{{form.submit()}}
+				{% if error %}
+					<p class="content"><strong><mark>Error:</mark>{{error}}</strong></p>
+				{% endif %}
+				
+			</form>	
+		</p> 
+	</div>	
+</body>
+</html>

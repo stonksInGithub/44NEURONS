@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>44NEURONS</title>
+<title>Skin Cancer Classifier</title>
 <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='44N2.png')}}">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,10 +96,10 @@ div {
 </style>
 <body style="background-color:Gray;">
 	<div class="fade-in-effect">
-		<img src="{{url_for('static', filename='44N.png')}}" alt="Smiley face" style="float:center;width:250px;height:110px;"></p>
+		<img src="{{url_for('static', filename='44N.png')}}" alt="44Neurons" style="float:center;width:250px;height:110px;"></p>
 		<h1 style="width:100%; text-align:center;">Skin Cancer Classification</h1><hr style="height:5px;background-color:black;">
 		<img src="{{url_for('static', filename='skincancer.jpg')}}" alt="pneumonia.jpg" width="500" height="600" class="center">
-		<h2 style="text-align:center;">Skin Cancer detector</h2>
+		<h2 style="text-align:center;">Skin Cancer Classifier</h2>
 	<p class="content">
 			<mark><strong>Abstract:</strong></mark> Identification of type of skin cancer through images of skin using Convolutional Neural Network. The model is trained with over 10,000 images with an accuracy of 95%
 			<b><hr>
@@ -109,11 +109,11 @@ div {
 			
 			<br>The aim of the project is to enable people identify their disease themselves anytime. Though the model has an accuracy of 95% , The result could still be false and it is advised to consult the doctor for confirmation
 		</p>
-		<p class="content"><mark><strong>Design</strong></mark>
+		<p class="content"><mark><strong>Design:</strong></mark>
 			This project is programmed in python with the back-end being tensorflow. We used flask to integrate the model and the UI
 
 			<br><br>
-			<mark><strong>Data:</strong></mark> The Dataset used is from <a href="https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000">kaggle.com</a>
+			<mark><strong>Data:</strong></mark> The Dataset used is from <a href="https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000" target="_blank">kaggle.com</a>
 			The dataset is divided into 3 folders (train, test, val) and each folder having 7 categories for each type of the disease. The data provided is very precise and accurate
 			<br><br>
 			<mark><strong>Model:</strong></mark> The model is created with keras module and is 12 layers deep. It pre-processes the given dataset image and divides it into two splits : training and testing. Then the image is Convoluted and Maxpooled 3 times and then it flattens the image. We now have the fully connected neural network and the model is compiled with Adam optimizer over 70 epochs.
@@ -127,13 +127,7 @@ div {
 				{% if error %}
 					<p class="content"><strong><mark>Error:</mark>{{error}}</strong></p>
 				{% endif %}
-				{% with messages=get_flashed_messages() %}
-					{% if messages %}
-						{%for message in messages %}
-							<p> {{message}}
-						{% endfor%}
-					{% endif %}
-				{% endwith %}
+				
 			</form>	
 		</p> 	
 
