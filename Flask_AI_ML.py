@@ -28,7 +28,7 @@ class UploadFileForm(FlaskForm):
 def check_size(path):
     with Image.open(path) as image:
         width,height=image.size
-        if width < 320 or height < 320:
+        if width < 320 and height < 320:
             return True
 
 def pneu_pred(fp: str):
