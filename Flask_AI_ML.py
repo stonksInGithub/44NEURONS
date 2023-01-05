@@ -96,7 +96,7 @@ def pneu_page_to():
             minpath=".\\static\\files\\" + app.c
             app.path=os.path.abspath(minpath)
             if check_size(app.path):
-                error="The dimensions of the image must be greater than (224,224)"
+                error="The dimensions of the image must be greater than (320,320)"
             else:
                 return redirect(url_for('result'))
                 app.type="Detector"
