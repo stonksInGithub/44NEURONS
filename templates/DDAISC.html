@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>44NEURONS</title>
+<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='44N2.png')}}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style> 
+div {
+  margin:auto;
+  width:95%;
+  color:white;
+  font-weight: bold;
+  position: relative;
+  }
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 300px;}
+}
+.fade-in-effect {
+  font-family: Arial;
+  font-size: 60px;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.content {
+	margin:auto;
+	width:95%;
+	font-family:Arial;
+	font-size:20px;
+	color:white;
+	text-align:center;
+	
+}
+.center {
+  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4-%%;
+}
+.left{
+	float:left
+}
+.right{
+	float:right
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 15px;
+}
+
+</style>
+<body style="background-color:Gray;">
+	<div class="fade-in-effect">
+		<img src="{{url_for('static', filename='44N.png')}}" alt="Smiley face" style="float:center;width:250px;height:110px;"></p>
+		<h1 style="width:100%; text-align:center;">Skin Cancer Classification</h1><hr style="height:5px;background-color:black;">
+		<img src="{{url_for('static', filename='skincancer.jpg')}}" alt="pneumonia.jpg" width="500" height="600" class="center">
+		<h2 style="text-align:center;">Skin Cancer detector</h2>
+	<p class="content">
+			<mark><strong>Abstract:</strong></mark> Identification of type of skin cancer through images of skin using Convolutional Neural Network. The model is trained with over 10,000 images with an accuracy of 95%
+			<b><hr>
+		</p>
+		<p class="content"><mark><strong>Introduction:</strong></mark> 
+			Skin cancer is the uncontrolled growth of abnormal skin cells. It occurs when damage to skin cells—most often caused by ultraviolet radiation from sunshine or tanning beds—causes skin cells to multiply rapidly and form malignant tumors.
+			
+			<br>The aim of the project is to enable people identify their disease themselves anytime. Though the model has an accuracy of 95% , The result could still be false and it is advised to consult the doctor for confirmation
+		</p>
+		<p class="content"><mark><strong>Design</strong></mark>
+			This project is programmed in python with the back-end being tensorflow. We used flask to integrate the model and the UI
+
+			<br><br>
+			<mark><strong>Data:</strong></mark> The Dataset used is from <a href="https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000">kaggle.com</a>
+			The dataset is divided into 3 folders (train, test, val) and each folder having 7 categories for each type of the disease. The data provided is very precise and accurate
+			<br><br>
+			<mark><strong>Model:</strong></mark> The model is created with keras module and is 12 layers deep. It pre-processes the given dataset image and divides it into two splits : training and testing. Then the image is Convoluted and Maxpooled 3 times and then it flattens the image. We now have the fully connected neural network and the model is compiled with Adam optimizer over 70 epochs.
+			<br><br>
+			<mark><strong>Result:</mark></strong>During the training of the model , It was noted that it has an average accuracy of 0.9113 and an average loss of 0.2399. During the testing , it was noted that it has an average accuracy of 0.9578 and an average loss of 0.1284.
+			Please upload the X-ray image of the chest here to test for pneumonia:
+			<form method="post" class="content" enctype="multipart/form-data" required>
+				{{form.hidden_tag()}}
+				{{form.file()}}
+				{{form.submit()}}
+				{% if error %}
+					<p class="content"><strong><mark>Error:</mark>{{error}}</strong></p>
+				{% endif %}
+				{% with messages=get_flashed_messages() %}
+					{% if messages %}
+						{%for message in messages %}
+							<p> {{message}}
+						{% endfor%}
+					{% endif %}
+				{% endwith %}
+			</form>	
+		</p> 	
+
+	</div>
+</body>
+</html>
