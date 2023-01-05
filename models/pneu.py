@@ -2,12 +2,12 @@
 import numpy as np
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
-from keras.applications.densenet import DenseNet121
-from keras.layers import Dense, GlobalAveragePooling2D, Conv2D, MaxPooling2D, Flatten, Activation, Dropout, BatchNormalization
+from keras.layers import Dense, Conv2D, MaxPooling2D, Flatten, Activation, Dropout
 from keras.models import Sequential
 from keras.models import Model
-from keras import backend as K
 from keras.models import load_model
+
+print(tf.__version__)
 
 # %%
 labels = ['PNEUMONIA', 'NORMAL']
