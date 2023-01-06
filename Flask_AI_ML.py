@@ -96,7 +96,7 @@ def pneu_page_to():
             error="Files with only .jpg and .jpeg extensions are allowed"
         else:
             file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
-            app.c=file.filename
+            app.c=file.filename.replace(" ","_")
             minpath=".\\static\\files\\" + app.c
             app.path=os.path.abspath(minpath)
             if check_pneu_size(app.path):
@@ -118,7 +118,7 @@ def skin_cancer():
             error="Files with only .jpg and .jpeg extensions are allowed"
         else:
             file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
-            app.c=file.filename
+            app.c=file.filename.replace(" ","_")
             minpath=".\\static\\files\\" + app.c
             app.path=os.path.abspath(minpath)
             if check_sc_size(app.path):
