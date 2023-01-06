@@ -49,8 +49,8 @@ def pneu_pred(fp: str):
         else:
             return False
 def sc_pred(path):
-    model=load_model('skin_cancer_detector_by_irfan.h5')
-    i=image.load_img(path,target_size=(32,32))
+    model=load_model('skin.h5')
+    i=image.load_img(path,target_size=(38,38))
     im=image.img_to_array(i)
     img=np.expand_dims(im,axis=0)
     prediction=model.predict(img)
