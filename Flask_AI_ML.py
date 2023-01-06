@@ -28,13 +28,13 @@ class UploadFileForm(FlaskForm):
 def check_pneu_size(path):
     with Image.open(path) as image:
         width,height=image.size
-        if width < 320 and height < 320:
+        if width < 320 or height < 320:
             return True
         
 def check_sc_size(path):
     with Image.open(path) as image:
         width,height=image.size
-        if width < 28 and height < 28:
+        if width < 28 or height < 28:
             return True
 
 def pneu_pred(fp: str):
@@ -50,7 +50,7 @@ def pneu_pred(fp: str):
             return False
 def sc_pred(path):
     model=load_model('skin.h5')
-    i=image.load_img(path,target_size=(38,38))
+    i=image.load_img(path,target_size=(28,28))
     im=image.img_to_array(i)
     img=np.expand_dims(im,axis=0)
     prediction=model.predict(img)
