@@ -124,7 +124,7 @@ def skin_cancer():
             minpath=".\\static\\files\\" + app.c
             app.path=os.path.abspath(minpath)
             if check_sc_size(app.path):
-                error="The dimensions of the image must be greater than (32,32)"
+                error="The dimensions of the image must be greater than (28,28)"
             else:
                 return redirect(url_for('result'))
             
