@@ -50,13 +50,11 @@ def pneu_pred(fp: str):
             return False
 def sc_pred(path):
     model=load_model('skin_cancer_detector_by_irfan.h5')
-    i=image.load_img(path,target_size=(28,28))
+    i=image.load_img(path,target_size=(32,32))
     im=image.img_to_array(i)
     img=np.expand_dims(im,axis=0)
     prediction=model.predict(img)
     x=list(prediction[0])
-    if max(x) == 0:
-        return "Negative"
     if x.index(max(x))==0:
         return 'Actinic keratoses'
     elif x.index(max(x))==1:
@@ -66,9 +64,9 @@ def sc_pred(path):
     elif x.index(max(x))==3:
         return 'Dermatofibroma'
     elif x.index(max(x))==4:
-        return 'Melanocytic nevi'
+        return 'Melanonocytic nevi'
     elif x.index(max(x))==5:
-        return 'Pyrogenic granulomas and hemorrhage'
+        return 'Vascular lesions'
     elif x.index(max(x))==6:
         return 'Melanoma'
 
